@@ -1,0 +1,26 @@
+name: Deploy project jobs at once
+
+on: push
+
+jobs:
+
+  Deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name:  Run Lint 
+        run: npm run lint 
+
+      - name:  Run tests
+        run: npm run test 
+
+      - name:  Run Build
+        run: npm run Build
+
+      - name: Deploy
+        run: echo "Deploy Success"  
