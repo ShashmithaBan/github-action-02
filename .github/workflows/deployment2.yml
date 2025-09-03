@@ -1,0 +1,55 @@
+name : Deploy project in sequetial 
+
+on: push
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name:  Run Lint 
+        run: npm run lint 
+
+      - name: Display Lint
+        run: echo "Lint Run successfully" 
+  
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name:  Run Test
+        run: npm run test 
+
+      - name: Display test
+        run: echo "Test Run successfully" 
+
+  deploy:
+    needs: [test,lint]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name:  Run build 
+        run: npm run build 
+
+      - name: Display Build
+        run: echo "build  successfully" 
