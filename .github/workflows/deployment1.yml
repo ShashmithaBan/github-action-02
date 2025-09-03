@@ -22,7 +22,7 @@ jobs:
         run: npm run test 
 
       - name:  Run Build
-        run: npm run Build
+        run: npm run build
 
       - name: Deploy
         run: echo "Deploy Success"  
