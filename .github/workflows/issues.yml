@@ -1,6 +1,6 @@
 name: Issues
 
-on: push
+on: issues
 
 jobs: 
   Issues:
@@ -10,4 +10,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Display Info
-        run : echo '${{ toJSON( github ) }}'
+        run : echo '${{ toJSON( github.event ) }}'
