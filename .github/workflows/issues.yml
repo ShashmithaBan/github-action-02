@@ -1,6 +1,6 @@
 name: Issues
 
-on: workflow-dispatch
+on: push
 
 jobs: 
   Issues:
